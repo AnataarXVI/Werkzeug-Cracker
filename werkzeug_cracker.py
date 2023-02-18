@@ -31,11 +31,14 @@ class Werkzeug_Cracker(threading.Thread):
             events.append(event)
             events[-1].start()
 
+        return True
+
     ## Stop workers
     def stop(self):
         self._stop_event.set()
         self.bar.finish()
-    
+        return True
+
     ## Return bool if workers should stop or not
     def stopped(self):
         return self._stop_event.is_set()
@@ -56,6 +59,7 @@ class Werkzeug_Cracker(threading.Thread):
 
     def run(self):
         self.init_workers()
+        return True
 
 
 if __name__ == "__main__":
