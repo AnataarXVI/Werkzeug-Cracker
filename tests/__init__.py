@@ -1,12 +1,12 @@
 from queue import Queue
 
 ## Open the hash file
-with open("hash.txt","r") as hash:
+with open("./hash.txt","r") as hash:
     test_hash =  hash.read().split()
  
 
 ## Open the wordlist
-with open("wordlist.txt","r", encoding="latin-1") as wordlist:
+with open("./wordlist.txt","r", encoding="latin-1") as wordlist:
 
     raw_words = wordlist.read().split()
     
