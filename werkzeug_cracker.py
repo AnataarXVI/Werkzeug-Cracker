@@ -4,6 +4,7 @@ from queue import Queue
 
 import threading
 import sys
+import os
 import argparse
 import textwrap
 
@@ -23,6 +24,7 @@ class Werkzeug_Cracker(threading.Thread):
 
     def init_workers(self):
         events = []
+
         ## Start Workers
         for i in range(self.workers):
             event = threading.Thread(target=self.brute)
@@ -54,19 +56,21 @@ class Werkzeug_Cracker(threading.Thread):
 
     def run(self):
         self.init_workers()
-        self.brute()
 
 
 if __name__ == "__main__":
+
+    ## Menu
     parser = argparse.ArgumentParser(description='Werkzeug hash cracker', formatter_class=argparse.RawDescriptionHelpFormatter, epilog=textwrap.dedent('''
     Example:
             werkzeug_cracker.py -p [hash] -w [wordlist] -t [threads]'''))
 
     parser.add_argument('-p','--password', help='load hash file')
     parser.add_argument('-w','--wordlist', help='load wordlist file')
-    parser.add_argument('-t','--threads', help='number of threads, default=15', type=int, default=15)
+    parser.add_argument('-t','--threads', help=f'number of threads, default={os.cpu_count()}', type=int, default=os.cpu_count())
     args = parser.parse_args()
 
+    ## If no args
     if not args.password or not args.wordlist:
         print(parser.format_help())
 
@@ -77,15 +81,16 @@ if __name__ == "__main__":
         
         ## Open the wordlist
         with open(args.wordlist,"r", encoding="latin-1") as wordlist:
-            raw_words = wordlist.read().split()
 
+            raw_words = wordlist.read().split()
+            
             ## Initialize the Queue
             words = Queue()
 
             ## Increment the Queue with passwords of the wordlist
             for word in raw_words:
                 words.put(word)
-        
+
+            
         ## Initialize
         Werkzeug_Cracker(hash, words, args.threads)
-        
