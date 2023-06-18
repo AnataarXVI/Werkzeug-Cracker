@@ -8,7 +8,7 @@ import os
 import argparse
 import textwrap
 
-__version__ = "1.0"
+__version__ = "1.5"
 __author__ = "Anataar"
 
 class Werkzeug_Cracker(threading.Thread):
@@ -53,7 +53,7 @@ class Werkzeug_Cracker(threading.Thread):
             ## Will check if the password match
             if check_password_hash(self.hash, password) == True:
                 self.stop()
-                print(f"\nPassword found: {password}")
+                sys.stdout.write(f"\nPassword found: {password}")
         sys.exit(0)
 
 
@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
     ## If no args
     if not args.password or not args.wordlist:
-        print(parser.format_help())
+        sys.stdout.write(parser.format_help())
 
     else:
         ## Open the hash file
