@@ -40,7 +40,7 @@ Hash verification :
 True
 ```
 
-ref : [werkzeug.security official documentation](https://werkzeug.palletsprojects.com/en/2.0.x/utils/#module-werkzeug.security)
+ref : [werkzeug.security official documentation](https://werkzeug.palletsprojects.com/en/2.3.x/utils/#module-werkzeug.security)
 
 
 Installation & Usage
