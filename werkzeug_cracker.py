@@ -51,7 +51,7 @@ class Werkzeug_Cracker(threading.Thread):
             ## Will check if the password match
             if check_password_hash(self.hash, password):
                 self.stop()
-                sys.stdout.write(f"\nPassword found: {password}")
+                sys.stdout.write(f"Password found: {password}\n\n")
         sys.exit(0)
 
     def run(self):
