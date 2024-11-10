@@ -4,8 +4,8 @@
 <a target="_blank" href="https://img.shields.io/badge/platform-windows-success.svg" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/platform-windows-success.svg">
 </a>
-<a target="_blank" href="https://img.shields.io/badge/version-1.0.0-yellow" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/version-1.0.0-yellow">
+<a target="_blank" href="https://img.shields.io/badge/version-1.6.0-yellow" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/version-1.6.0-yellow">
 </a>
 <a href="https://www.python.org/" rel="nofollow">
     <img src="https://img.shields.io/badge/python-3.10-red">
@@ -40,7 +40,7 @@ Hash verification :
 True
 ```
 
-ref : [werkzeug.security official documentation](https://werkzeug.palletsprojects.com/en/2.3.x/utils/#module-werkzeug.security)
+ref : [werkzeug.security official documentation](https://werkzeug.palletsprojects.com/en/stable/utils/#module-werkzeug.security)
 
 
 Installation & Usage

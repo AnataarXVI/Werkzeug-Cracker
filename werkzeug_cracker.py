@@ -8,7 +8,7 @@ import os
 import argparse
 import textwrap
 
-__version__ = "1.5"
+__version__ = "1.6"
 __author__ = "Anataar"
 
 class Werkzeug_Cracker(threading.Thread):
