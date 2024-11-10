@@ -23,14 +23,12 @@ class Werkzeug_Cracker(threading.Thread):
     def init_workers(self):
         events = []
 
-        ## Start Workers
+        ## Initialize workers
         for _ in range(self.workers):
             event = threading.Thread(target=self.brute)
             events.append(event)
-            # events[-1].start()
 
         return events
-        # return True
 
     ## Stop workers
     def stop(self):
@@ -85,6 +83,12 @@ if __name__ == "__main__":
         with open(args.wordlist, "r", encoding="latin-1") as wordlist:
             raw_words = wordlist.read().split()
 
+        ## Open the hash file
+        with open(args.password,"r") as phash:
+            hashes = phash.read().split()
+
+        ## Initialize
+        for h in hashes:
             ## Initialize the Queue
             words = Queue()
 
@@ -92,15 +96,6 @@ if __name__ == "__main__":
             for word in raw_words:
                 words.put(word)
 
-        ## Open the hash file
-        with open(args.password,"r") as phash:
-            hashes = phash.read().split()
-
-        ## Initialize
-        for h in hashes:
             cracker = Werkzeug_Cracker(h, words, args.threads)
             cracker.start()
             cracker.join()
-        # Werkzeug_Cracker(hash, words, args.threads)
-        # for i in range(len(hashes)):
-        #     Werkzeug_Cracker(hashes[i], words, args.threads)
