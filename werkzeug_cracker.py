@@ -89,6 +89,10 @@ if __name__ == "__main__":
 
         ## Initialize
         for h in hashes:
+            ## Skip commented out hashes
+            if h[0] == "#":
+                continue
+
             ## Initialize the Queue
             words = Queue()
 
